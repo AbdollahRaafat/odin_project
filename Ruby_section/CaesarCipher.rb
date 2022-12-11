@@ -1,12 +1,15 @@
 
 class CaesarCipher
   def crypt(a_letter, key)
-    c = a_letter.ord + key
+    ch = a_letter.ord + key
 
     is_upper = a_letter == a_letter.upcase
 
-    is_upper ? (c = ((c-"A".ord)%26)+ "A".ord) : (c = ((c-"a".ord)%26)+ "a".ord)
-    c.chr
+    temp = is_upper ? "A".ord : "a".ord
+
+    ch = ((ch - temp ) % 26) + temp
+
+    ch.chr
   end
 
 
@@ -37,9 +40,9 @@ end
 # test_3 = "Hello, World!"
 # answer_3 = "Ebiil, Tloia!"
 
+# obj = CaesarCipher.new
 
-
-# change(test_1, 5) == answer_1 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
-# change(test_2, 2) == answer_2 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
-# change(test_3, -55) == answer_3 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
+# obj.change(test_1, 5) == answer_1 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
+# obj.change(test_2, 2) == answer_2 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
+# obj.change(test_3, -55) == answer_3 ? (puts "💹 Decoding succeed") : (puts "❌ Decoding faild")
 
